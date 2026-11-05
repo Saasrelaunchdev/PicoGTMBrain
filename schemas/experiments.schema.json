@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Saasrelaunchdev/PicoGTMBrain/schemas/experiments.schema.json",
+  "title": "Experiment registry",
+  "type": "object",
+  "required": [
+    "version",
+    "experiments"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer"
+    },
+    "last_reviewed": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "experiments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "audience",
+          "name",
+          "hypotheses",
+          "design",
+          "status",
+          "owner"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^EXP-\\d{3}$"
+          },
+          "audience": {
+            "type": "string",
+            "enum": [
+              "merchants",
+              "implementers",
+              "both"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "hypotheses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "design": {
+            "type": "string"
+          },
+          "start": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "end": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "start_anchor": {
+            "type": "object"
+          },
+          "end_anchor": {
+            "type": "object"
+          },
+          "budget_usd": {
+            "type": "number",
+            "minimum": 0
+          },
+          "budget_note": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "planned",
+              "running",
+              "closed",
+              "abandoned"
+            ]
+          },
+          "decisions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "result": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "learning": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "decision_taken": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

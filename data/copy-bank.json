@@ -1,0 +1,280 @@
+{
+  "$schema": "../schemas/export.schema.json",
+  "kind": "copy-bank",
+  "generated_from": [
+    "ops/copy-bank.md"
+  ],
+  "as_of": "2026-11-04",
+  "items": [
+    {
+      "section": "One-line positioning",
+      "status": "APPROVED",
+      "line": "Pico shows merchants what their shoppers ask for, and answers shoppers with products drawn from the store's own synced catalog.",
+      "note": "Merchants"
+    },
+    {
+      "section": "One-line positioning",
+      "status": "APPROVED",
+      "line": "An AI shopping assistant for Shopify that answers from your own catalog.",
+      "note": "Merchants, listing headline"
+    },
+    {
+      "section": "One-line positioning",
+      "status": "APPROVED",
+      "line": "Pico finds it in your catalog.",
+      "note": "Merchants, short"
+    },
+    {
+      "section": "One-line positioning",
+      "status": "APPROVED",
+      "line": "Pico pays implementers for a first session on a store they work on, and, with the client's permission, credits their work in the case study that follows.",
+      "note": "Implementers"
+    },
+    {
+      "section": "One-line positioning",
+      "status": "APPROVED",
+      "line": "Paid to test it. Credited when it works.",
+      "note": "Implementers, short"
+    },
+    {
+      "section": "Reframes",
+      "status": "APPROVED",
+      "line": "Not another AI chatbot that tries to answer everything, a shopping assistant built around your synced catalog that shows you what shoppers asked for.",
+      "note": ""
+    },
+    {
+      "section": "Reframes",
+      "status": "APPROVED",
+      "line": "Not a smarter search bar, a conversation for shoppers who don't know a product's name.",
+      "note": ""
+    },
+    {
+      "section": "Reframes",
+      "status": "APPROVED",
+      "line": "Not one more app to manage, a low-risk way to see what your shoppers are asking for.",
+      "note": ""
+    },
+    {
+      "section": "Reframes",
+      "status": "APPROVED",
+      "line": "Not another affiliate program that pays after the referral, a paid session that starts before any referral exists.",
+      "note": ""
+    },
+    {
+      "section": "Reframes",
+      "status": "APPROVED",
+      "line": "Not a build you have to maintain, an app you set up in four steps or hand to your coding agent.",
+      "note": ""
+    },
+    {
+      "section": "Reframes",
+      "status": "APPROVED",
+      "line": "Pico answers product questions. Keep your help desk for orders and people.",
+      "note": ""
+    },
+    {
+      "section": "Hooks",
+      "status": "APPROVED",
+      "line": "Let shoppers describe what they need.",
+      "note": ""
+    },
+    {
+      "section": "Hooks",
+      "status": "APPROVED",
+      "line": "See the requests that found nothing.",
+      "note": ""
+    },
+    {
+      "section": "Hooks",
+      "status": "APPROVED",
+      "line": "Try it before you install anything.",
+      "note": ""
+    },
+    {
+      "section": "Hooks",
+      "status": "APPROVED",
+      "line": "We pay you $150 to install Pico on a store you work on and tell us what works and what breaks.",
+      "note": ""
+    },
+    {
+      "section": "Hooks",
+      "status": "APPROVED",
+      "line": "Show clients what their shoppers couldn't find.",
+      "note": ""
+    },
+    {
+      "section": "Merchant headlines",
+      "status": "APPROVED",
+      "line": "For shoppers who don't know the product's name.",
+      "note": ""
+    },
+    {
+      "section": "Merchant headlines",
+      "status": "APPROVED",
+      "line": "Every card comes from your synced catalog.",
+      "note": ""
+    },
+    {
+      "section": "Merchant headlines",
+      "status": "APPROVED",
+      "line": "From question to cart in one tap.",
+      "note": ""
+    },
+    {
+      "section": "Merchant headlines",
+      "status": "APPROVED",
+      "line": "See where requests stop between question and cart.",
+      "note": ""
+    },
+    {
+      "section": "Merchant headlines",
+      "status": "APPROVED",
+      "line": "Find out what shoppers looked for and missed.",
+      "note": ""
+    },
+    {
+      "section": "Merchant headlines",
+      "status": "APPROVED",
+      "line": "Your last 30 days against the 30 before.",
+      "note": ""
+    },
+    {
+      "section": "Merchant headlines",
+      "status": "APPROVED",
+      "line": "Start free with 50 conversations a month.",
+      "note": ""
+    },
+    {
+      "section": "Merchant headlines",
+      "status": "APPROVED",
+      "line": "Four steps from install to live widget.",
+      "note": ""
+    },
+    {
+      "section": "Merchant headlines",
+      "status": "APPROVED",
+      "line": "No theme code to edit.",
+      "note": ""
+    },
+    {
+      "section": "Merchant headlines",
+      "status": "IN BUILD",
+      "line": "No surprise charges. Pico pauses before it bills you more.",
+      "note": "[IN BUILD]"
+    },
+    {
+      "section": "Implementer headlines",
+      "status": "APPROVED",
+      "line": "Install without editing theme code.",
+      "note": ""
+    },
+    {
+      "section": "Implementer headlines",
+      "status": "APPROVED",
+      "line": "Hand setup to your coding agent.",
+      "note": ""
+    },
+    {
+      "section": "Implementer headlines",
+      "status": "APPROVED",
+      "line": "Test it before any client store.",
+      "note": ""
+    },
+    {
+      "section": "Implementer headlines",
+      "status": "APPROVED",
+      "line": "Bring your client their shoppers' own words.",
+      "note": ""
+    },
+    {
+      "section": "Implementer headlines",
+      "status": "APPROVED",
+      "line": "Give each person the access they need.",
+      "note": ""
+    },
+    {
+      "section": "Implementer headlines",
+      "status": "APPROVED",
+      "line": "A month-on-month view for your client report.",
+      "note": ""
+    },
+    {
+      "section": "Implementer headlines",
+      "status": "APPROVED",
+      "line": "Paid to test Pico on a store you work on.",
+      "note": ""
+    },
+    {
+      "section": "Implementer headlines",
+      "status": "APPROVED",
+      "line": "A case study that credits your work.",
+      "note": ""
+    },
+    {
+      "section": "Implementer headlines",
+      "status": "IN BUILD",
+      "line": "25% of each referred store's subscription, for 24 months.",
+      "note": "[IN BUILD, week 6]"
+    },
+    {
+      "section": "Open proof (checkable now, use as-is)",
+      "status": "APPROVED",
+      "line": "Open the sandbox before you install anything.",
+      "note": "The Sandbox link in picofinds.com's top menu runs a sample outdoor gear catalog on Pico's real API"
+    },
+    {
+      "section": "Open proof (checkable now, use as-is)",
+      "status": "APPROVED",
+      "line": "Ask the sandbox in your own words, then check what it matched.",
+      "note": ""
+    },
+    {
+      "section": "Open proof (checkable now, use as-is)",
+      "status": "APPROVED",
+      "line": "Open any card and check it against the catalog.",
+      "note": "Every sandbox card has a View link"
+    },
+    {
+      "section": "Open proof (checkable now, use as-is)",
+      "status": "APPROVED",
+      "line": "Give the sandbox a vague request and see what it asks.",
+      "note": ""
+    },
+    {
+      "section": "Open proof (checkable now, use as-is)",
+      "status": "APPROVED",
+      "line": "Read the setup skill before your agent runs it.",
+      "note": ""
+    },
+    {
+      "section": "Open proof (checkable now, use as-is)",
+      "status": "APPROVED",
+      "line": "Read Shopify's own docs on app embeds before you install.",
+      "note": ""
+    },
+    {
+      "section": "Open proof (checkable now, use as-is)",
+      "status": "IN BUILD",
+      "line": "The plan page states each plan's quota and what counts as one conversation.",
+      "note": "[IN BUILD]"
+    },
+    {
+      "section": "Calls to action",
+      "status": "APPROVED",
+      "line": "Connect your store",
+      "note": "Merchants, before the listing is live: . After"
+    },
+    {
+      "section": "Calls to action",
+      "status": "APPROVED",
+      "line": "Open the sandbox store",
+      "note": "Merchants, evaluation: . Lead magnet"
+    },
+    {
+      "section": "Calls to action",
+      "status": "IN BUILD",
+      "line": "Apply for a paid session",
+      "note": "Implementers: . . . [IN BUILD, week 6]"
+    }
+  ]
+}

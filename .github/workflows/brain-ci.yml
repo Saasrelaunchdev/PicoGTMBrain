@@ -1,0 +1,25 @@
+name: brain-ci
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"   # Monday triage reminder: tripwires and staleness
+jobs:
+  brain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generated files are current
+        run: python3 tools/brain.py check
+      - name: Audit (vendored skill audit, schemas, examples)
+        run: python3 tools/brain.py audit
+      - name: Unit tests
+        run: python3 -m unittest discover -s tools/tests -v
+      - name: Tripwires (report)
+        run: python3 tools/brain.py tripwires
+      - name: Tripwires (fail the weekly run if a decision should be reopened)
+        if: github.event_name == 'schedule'
+        run: python3 tools/brain.py tripwires --strict

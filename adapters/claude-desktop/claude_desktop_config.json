@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "pico-gtm-brain": {
+      "command": "python3",
+      "args": [
+        "/ABSOLUTE/PATH/TO/PicoGTMBrain/tools/mcp_server.py"
+      ],
+      "env": {
+        "PICO_BRAIN_READONLY": "0"
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Saasrelaunchdev/PicoGTMBrain/schemas/hypotheses.schema.json",
+  "title": "Leap-of-faith assumptions",
+  "type": "object",
+  "required": [
+    "version",
+    "hypotheses"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer"
+    },
+    "last_reviewed": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "audience",
+          "kind",
+          "statement",
+          "metric",
+          "pass",
+          "fail",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^H-[MI]\\d+$"
+          },
+          "audience": {
+            "type": "string",
+            "enum": [
+              "merchants",
+              "implementers",
+              "both"
+            ]
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "value",
+              "growth",
+              "activation",
+              "pricing",
+              "monetization",
+              "retention",
+              "conversion",
+              "proof",
+              "expansion",
+              "research"
+            ]
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 10
+          },
+          "metric": {
+            "type": "string"
+          },
+          "pass": {
+            "type": "string"
+          },
+          "fail": {
+            "type": "string"
+          },
+          "decisions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "experiments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "untested",
+              "testing",
+              "validated",
+              "invalidated",
+              "retired"
+            ]
+          },
+          "evidence": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  }
+}

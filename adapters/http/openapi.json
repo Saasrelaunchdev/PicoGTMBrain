@@ -1,0 +1,380 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Pico GTM Brain",
+    "version": "1.0",
+    "description": "The Pico go-to-market brain, read only. Load the context for a task before writing, lint every draft, and treat the lookups as the source of truth. Pico is pre-launch: there are no customers, reviews, or results, and nothing may be invented."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8765",
+      "description": "Replace with the URL where tools/http_server.py runs"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "getHealth",
+        "summary": "Server and master context version. No token needed.",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Health",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/tasks": {
+      "get": {
+        "operationId": "listTasks",
+        "summary": "The tasks in the load policy, and which audience each one takes.",
+        "responses": {
+          "200": {
+            "description": "Tasks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/context/{task}": {
+      "get": {
+        "operationId": "getContext",
+        "summary": "The exact brain files to load for a task, in order. Call this before writing anything customer-facing, with include_text=true for their full text.",
+        "parameters": [
+          {
+            "name": "task",
+            "in": "path",
+            "required": true,
+            "description": "A task from listTasks",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "amend",
+                "app-store-listing",
+                "case-study",
+                "cold-email",
+                "copy",
+                "experiment",
+                "investor-update",
+                "job-post",
+                "landing-page",
+                "lifecycle-email",
+                "linkedin",
+                "one-pager",
+                "partner-page",
+                "pricing",
+                "review-reply",
+                "sales-call",
+                "seo-article",
+                "session",
+                "signal",
+                "snapshot",
+                "strategy"
+              ]
+            }
+          },
+          {
+            "name": "audience",
+            "in": "query",
+            "required": false,
+            "description": "merchants or implementers, never blended",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "merchants",
+                "implementers"
+              ]
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "description": "json, the default, or cat for one Markdown document",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "cat",
+                "list"
+              ]
+            }
+          },
+          {
+            "name": "include_text",
+            "in": "query",
+            "required": false,
+            "description": "With format json, add the concatenated text",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The load set: paths, hashes, a token estimate, and optionally the text",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/lint": {
+      "post": {
+        "operationId": "lintDraft",
+        "summary": "Check a draft against the brain's rules. Fix every error, using the replacement each finding names, before returning the draft.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "text"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "audience": {
+                    "type": "string",
+                    "enum": [
+                      "merchants",
+                      "implementers"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Error and warning counts, and every finding with its rule and fix",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/lookup/{kind}": {
+      "get": {
+        "operationId": "lookupLedger",
+        "summary": "Query a ledger: a feature's status flag, a forbidden claim and what to say instead, a glossary term, a decision by ID such as D25, or a metric against its target.",
+        "parameters": [
+          {
+            "name": "kind",
+            "in": "path",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "feature",
+                "claim",
+                "term",
+                "decision",
+                "metric"
+              ]
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "Words or an ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matching ledger items",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/search": {
+      "get": {
+        "operationId": "searchBrain",
+        "summary": "Case-insensitive search across the brain.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "schema": {
+              "type": "integer",
+              "default": 30
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Path, line, and text of each hit",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/file": {
+      "get": {
+        "operationId": "readFile",
+        "summary": "Read one brain file by its repository path, for example rules/do-not-say.md.",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The file's path, layer, hash, and text",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/metrics": {
+      "get": {
+        "operationId": "getMetrics",
+        "summary": "Every KPI computed from the event log, against its target and review date.",
+        "parameters": [
+          {
+            "name": "audience",
+            "in": "query",
+            "required": false,
+            "description": "merchants or implementers, never blended",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "merchants",
+                "implementers"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metric rows",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/tripwires": {
+      "get": {
+        "operationId": "getTripwires",
+        "summary": "Every decision's reopen condition. FIRED means the decision should be reopened.",
+        "responses": {
+          "200": {
+            "description": "Tripwire rows",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/portable": {
+      "get": {
+        "operationId": "getPortableControlLayer",
+        "summary": "The dated paste-in control layer for a model with no file access.",
+        "responses": {
+          "200": {
+            "description": "Markdown",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}

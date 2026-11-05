@@ -1,0 +1,304 @@
+{
+  "$schema": "../schemas/export.schema.json",
+  "kind": "features",
+  "generated_from": [
+    "rules/feature-status.md"
+  ],
+  "as_of": "2026-11-04",
+  "items": [
+    {
+      "area": "Shopper widget",
+      "capability": "Natural language requests, matched by keywords, synonyms, and price range",
+      "status": "SHIPPED",
+      "note": ""
+    },
+    {
+      "area": "Shopper widget",
+      "capability": "Product cards with image, name, price, stock label, View link",
+      "status": "SHIPPED",
+      "note": ""
+    },
+    {
+      "area": "Shopper widget",
+      "capability": "Add to cart from the card, in-stock variant picked, out-of-stock blocked",
+      "status": "SHIPPED",
+      "note": ""
+    },
+    {
+      "area": "Shopper widget",
+      "capability": "One clarifying question for vague requests, suggested reply chips",
+      "status": "SHIPPED",
+      "note": ""
+    },
+    {
+      "area": "Shopper widget",
+      "capability": "Product comparison inside a reply",
+      "status": "SHIPPED",
+      "note": ""
+    },
+    {
+      "area": "Shopper widget",
+      "capability": "A comparison screen",
+      "status": "ROADMAP",
+      "note": ""
+    },
+    {
+      "area": "Shopper widget",
+      "capability": "Replies in the shopper's language, switcher, Arabic right to left, widget text in 10 languages",
+      "status": "SHIPPED",
+      "note": ""
+    },
+    {
+      "area": "Shopper widget",
+      "capability": "Translation of catalog text",
+      "status": "OUT",
+      "note": ""
+    },
+    {
+      "area": "Shopper widget",
+      "capability": "Personalized welcome, session memory across a reload on one device",
+      "status": "SHIPPED",
+      "note": ""
+    },
+    {
+      "area": "Shopper widget",
+      "capability": "Cross-device memory or order-history personalization",
+      "status": "OUT",
+      "note": ""
+    },
+    {
+      "area": "Shopper widget",
+      "capability": "Semantic or vector search",
+      "status": "ROADMAP",
+      "note": ""
+    },
+    {
+      "area": "Shopper widget",
+      "capability": "Proactive prompts on product pages",
+      "status": "ROADMAP",
+      "note": ""
+    },
+    {
+      "area": "Merchant dashboard",
+      "capability": "Overview, 30 days against the prior 30, with sync health",
+      "status": "SHIPPED",
+      "note": ""
+    },
+    {
+      "area": "Merchant dashboard",
+      "capability": "Revenue attribution",
+      "status": "ROADMAP",
+      "note": ""
+    },
+    {
+      "area": "Merchant dashboard",
+      "capability": "Catalog sync on demand, retry, sync log, counts",
+      "status": "SHIPPED",
+      "note": ""
+    },
+    {
+      "area": "Merchant dashboard",
+      "capability": "Assistant voice controls, tone guidelines up to 1,000 characters, preview",
+      "status": "SHIPPED",
+      "note": ""
+    },
+    {
+      "area": "Merchant dashboard",
+      "capability": "Quota alerts at 80% and 100%, 10% grace on paid plans, launcher pause, no overage",
+      "status": "IN BUILD",
+      "note": ""
+    },
+    {
+      "area": "Merchant dashboard",
+      "capability": "Published conversation definition on the plan page and listing",
+      "status": "IN BUILD",
+      "note": ""
+    },
+    {
+      "area": "Merchant dashboard",
+      "capability": "Multi-store agency workspace",
+      "status": "ROADMAP",
+      "note": "built when 10 partners each have 3 or more active paying stores"
+    },
+    {
+      "area": "Merchant dashboard",
+      "capability": "Every feature on every plan",
+      "status": "SHIPPED",
+      "note": "and kept that way"
+    },
+    {
+      "area": "Setup and platform",
+      "capability": "Shopify OAuth install, theme app embed, four-step checklist",
+      "status": "SHIPPED",
+      "note": ""
+    },
+    {
+      "area": "Setup and platform",
+      "capability": "Shopify App Store listing and Shopify Billing",
+      "status": "IN BUILD",
+      "note": ""
+    },
+    {
+      "area": "Setup and platform",
+      "capability": "Tests on Dawn and Horizon",
+      "status": "IN BUILD",
+      "note": ""
+    },
+    {
+      "area": "Setup and platform",
+      "capability": "Headless (Hydrogen)",
+      "status": "OUT",
+      "note": "not claimed"
+    },
+    {
+      "area": "Setup and platform",
+      "capability": "\"No impact\"",
+      "status": "OUT",
+      "note": ""
+    },
+    {
+      "area": "Setup and platform",
+      "capability": "Inventory webhook subscription",
+      "status": "IN BUILD",
+      "note": "week 1"
+    },
+    {
+      "area": "Setup and platform",
+      "capability": "Sandbox store, setup skill for Cursor, Claude Code, Codex, Antigravity",
+      "status": "SHIPPED",
+      "note": ""
+    },
+    {
+      "area": "Setup and platform",
+      "capability": "Shopware 6 and custom catalog API",
+      "status": "SHIPPED",
+      "note": "in the product, OUT of both go-to-markets (deferred third run"
+    },
+    {
+      "area": "Setup and platform",
+      "capability": "EGP pricing by InstaPay",
+      "status": "SHIPPED",
+      "note": "for non-Shopify stores, OUT of both go-to-markets"
+    },
+    {
+      "area": "Plans and billing",
+      "capability": "Free 50, Growth $49 for 600, Pro $99 for 2,000, 14 day Growth trial with no card",
+      "status": "SHIPPED",
+      "note": ""
+    },
+    {
+      "area": "Plans and billing",
+      "capability": "Scale, $299 for 6,000 with an onboarding call, and custom plans above it",
+      "status": "IN BUILD",
+      "note": ""
+    },
+    {
+      "area": "Plans and billing",
+      "capability": "Founding cohort discount, 50% for 6 billing periods by Shopify Billing subscription discount",
+      "status": "IN BUILD",
+      "note": "opens 2026-12-01"
+    },
+    {
+      "area": "Plans and billing",
+      "capability": "Paid plans free for testing on partners' development stores",
+      "status": "IN BUILD",
+      "note": "switched on at launch"
+    },
+    {
+      "area": "Lifecycle build list",
+      "capability": "Sync failure email",
+      "status": "IN BUILD",
+      "note": "week 2"
+    },
+    {
+      "area": "Lifecycle build list",
+      "capability": "First insight email and weekly summary",
+      "status": "IN BUILD",
+      "note": "week 4"
+    },
+    {
+      "area": "Lifecycle build list",
+      "capability": "Proof capture point at value realization",
+      "status": "IN BUILD",
+      "note": "week 6"
+    },
+    {
+      "area": "Lifecycle build list",
+      "capability": "Monthly usage summary",
+      "status": "IN BUILD",
+      "note": "week 8"
+    },
+    {
+      "area": "Lifecycle build list",
+      "capability": "Words against the catalog check, a public page",
+      "status": "IN BUILD",
+      "note": "week 10"
+    },
+    {
+      "area": "Scope decisions",
+      "capability": "Human handoff or live chat",
+      "status": "OUT",
+      "note": ""
+    },
+    {
+      "area": "Scope decisions",
+      "capability": "Order status, returns, and policy answers",
+      "status": "OUT",
+      "note": "by design"
+    },
+    {
+      "area": "Scope decisions",
+      "capability": "WhatsApp and Instagram",
+      "status": "OUT",
+      "note": "until the GCC opens"
+    },
+    {
+      "area": "Scope decisions",
+      "capability": "GA4 event export",
+      "status": "ROADMAP",
+      "note": "built with revenue attribution after the founding cohort"
+    },
+    {
+      "area": "Scope decisions",
+      "capability": "Klaviyo",
+      "status": "ROADMAP",
+      "note": ""
+    },
+    {
+      "area": "Scope decisions",
+      "capability": "Holdout or A/B lift measurement",
+      "status": "ROADMAP",
+      "note": "the candidate that could answer lift claims honestly"
+    },
+    {
+      "area": "Implementer program",
+      "capability": "Paid Usability Sessions ($150) and interviews ($75)",
+      "status": "IN BUILD",
+      "note": "posts from week 1, sessions from week 2"
+    },
+    {
+      "area": "Implementer program",
+      "capability": "Case study permission forms and terms clause",
+      "status": "IN BUILD",
+      "note": "week 2"
+    },
+    {
+      "area": "Implementer program",
+      "capability": "Partner page, 25% and 30% shares, 10% managed share, deal registration, payouts on the 15th",
+      "status": "IN BUILD",
+      "note": "week 6, after counsel review in week 5"
+    },
+    {
+      "area": "Implementer program",
+      "capability": "Partner portal, tier badges, co-marketing, certification",
+      "status": "ROADMAP",
+      "note": ""
+    },
+    {
+      "area": "Implementer program",
+      "capability": "White label, cash bounties, client discounts at launch",
+      "status": "OUT",
+      "note": ""
+    }
+  ]
+}

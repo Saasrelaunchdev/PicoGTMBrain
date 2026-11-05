@@ -1,0 +1,103 @@
+{
+  "$schema": "../schemas/export.schema.json",
+  "kind": "signals",
+  "generated_from": [
+    "ops/signal-log.md"
+  ],
+  "as_of": "2026-11-05",
+  "items": [
+    {
+      "date": "2026-11-05",
+      "type": "RISK",
+      "source": "brain live test, lifecycle-email load set",
+      "verbatim": "Drafting the sync failure email, the brain could not say what shoppers see while a sync has failed or only partly finished, whether the sync log shows the cause of a failure, or where a merchant goes after a retry fails.",
+      "context": "Live test of the brain on 2026-11-05. The email in examples/sync-failure-email.md writes around all three gaps. Its trigger ships in week 2.",
+      "disposition": "PATCH",
+      "routed_to": "Engineer: answer the three in rules/feature-status.md before the week 2 trigger ships, then update templates/lifecycle-email.md and examples/sync-failure-email.md",
+      "tags": [
+        "live-test",
+        "sync-failure"
+      ]
+    },
+    {
+      "date": "2026-11-03",
+      "type": "STATUS",
+      "source": "App Store search, picofinds.com",
+      "verbatim": "No Pico listing found in the Shopify App Store index.",
+      "context": "Pre-launch. Affects every merchant call to action.",
+      "disposition": "AMEND",
+      "routed_to": "rules/feature-status.md (listing IN BUILD), ops/decisions.md (D2), ops/copy-bank.md (CTA \"Connect your store\" until live)",
+      "tags": []
+    },
+    {
+      "date": "2026-11-03",
+      "type": "RISK",
+      "source": "picofinds.com homepage",
+      "verbatim": "only recommends what is in stock\", \"Checks live stock\", \"Never invents stock, prices, or capabilities",
+      "context": "Three site lines broader than the product supports. The first review showing an out-of-stock card could quote them.",
+      "disposition": "AMEND",
+      "routed_to": "rules/do-not-say.md (hard bans with replacements), ops/decisions.md (D3)",
+      "tags": []
+    },
+    {
+      "date": "2026-11-03",
+      "type": "LANGUAGE",
+      "source": "Shopify App Store reviews across the merchant slate",
+      "verbatim": "Pricing or billing surprise was the most frequent complaint class, 16 or more reviews seen in indexed snippets.",
+      "context": "Merchants evaluating chat apps, stage 3.",
+      "disposition": "AMEND",
+      "routed_to": "ops/decisions.md (D25 no overage), ops/copy-bank.md (pause line, tagged IN BUILD)",
+      "tags": []
+    },
+    {
+      "date": "2026-11-03",
+      "type": "LANGUAGE",
+      "source": "Shopify App Store review of the Inbox agent",
+      "verbatim": "A reviewer reported inaccurate product information and asked for visibility into where answers came from.",
+      "context": "One review. Supports positioning vector 4, answers traceable to the catalog.",
+      "disposition": "WATCH (1/3)",
+      "routed_to": "none yet. Two more independent instances promote it to the value proposition",
+      "tags": []
+    },
+    {
+      "date": "2026-11-03",
+      "type": "COMPETITIVE",
+      "source": "Shopify Fall '26 Edition",
+      "verbatim": "The Inbox agent gives personalized recommendations, starts checkout from the chat, and reaches staff.",
+      "context": "The free native default every merchant weighs Pico against, on about 358,000 stores.",
+      "disposition": "AMEND",
+      "routed_to": "reference/competitor-battlecards.md, rules/do-not-say.md (never disparage, never compare to Shopify tools)",
+      "tags": []
+    },
+    {
+      "date": "2026-11-03",
+      "type": "COMPETITIVE",
+      "source": "Shopify Search & Discovery documentation",
+      "verbatim": "Searches with no results\" and \"Searches with no clicks\" are reported for the search bar.",
+      "context": "Narrows Pico's insight claim to requests made to the assistant.",
+      "disposition": "AMEND",
+      "routed_to": "rules/glossary.md (distinction), rules/do-not-say.md (scoping drill)",
+      "tags": []
+    },
+    {
+      "date": "2026-11-03",
+      "type": "CHANNEL",
+      "source": "Upwork and Fiverr terms of service",
+      "verbatim": "Upwork: payments for a relationship found there stay on Upwork for 24 months unless a conversion fee is paid. Fiverr: no off-platform payment, steering, or contact sharing.",
+      "context": "Shapes how a partnership can start with implementers met on marketplaces.",
+      "disposition": "AMEND",
+      "routed_to": "ops/decisions.md (D49), reference/outreach-engine.md, ops/QA-checklist.md",
+      "tags": []
+    },
+    {
+      "date": "2026-11-03",
+      "type": "SEGMENT",
+      "source": "26 sampled agency stack pages",
+      "verbatim": "No AI shopping assistant listed on any of the 26 pages. Klaviyo on 17, Gorgias on 13.",
+      "context": "Implementer Level 1 and Level 2. The status quo is offering nothing.",
+      "disposition": "PATCH",
+      "routed_to": "reference/positioning.md (implementer statement 3)",
+      "tags": []
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+# Receive activity from anywhere (Zapier, n8n, Make, a Shopify webhook relay, a script) and append it
+# to the innovation event log. Trigger with the GitHub API:
+#
+#   curl -X POST -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" \
+#     https://api.github.com/repos/Saasrelaunchdev/PicoGTMBrain/dispatches \
+#     -d '{"event_type":"brain-event","client_payload":{"type":"session.completed","audience":"implementers",
+#          "source":"upwork","data":{"channel":"upwork","setup_minutes":24}}}'
+#
+# A signal uses event_type "brain-signal" with client_payload {type, source, verbatim, context, disposition, tags}.
+# An event may also carry refs {decisions, hypotheses, experiments, metrics, signals}, ts, and tags.
+# adapters/http/github-dispatch.openapi.json describes this call for tools that only make HTTP requests, such as a
+# custom GPT Action. Use a fine-grained token for this repository only, with Contents read and write.
+name: ingest-event
+on:
+  repository_dispatch:
+    types: [brain-event, brain-signal]
+permissions:
+  contents: write
+concurrency:
+  group: brain-ingest
+  cancel-in-progress: false
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Append the payload
+        env:
+          KIND: ${{ github.event.action }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess, sys
+          payload = json.load(open(os.environ["GITHUB_EVENT_PATH"])).get("client_payload") or {}
+          tags = payload.get("tags") or []
+          tags = tags.split(",") if isinstance(tags, str) else tags
+          source = payload.get("source") or "repository_dispatch"
+          if not payload.get("type"):
+              sys.exit("client_payload.type is required")
+          if os.environ["KIND"] == "brain-signal":
+              if not payload.get("verbatim"):
+                  sys.exit("client_payload.verbatim is required for a signal")
+              cmd = ["python3", "tools/brain.py", "signal", "--type", payload["type"], "--source", source,
+                     "--verbatim", payload["verbatim"], "--context", payload.get("context", ""),
+                     "--disposition", payload.get("disposition", "NOISE"), "--routed", payload.get("routed_to", "none"),
+                     "--tags", ",".join(tags)]
+          else:
+              cmd = ["python3", "tools/brain.py", "event", payload["type"], "--audience", payload.get("audience", "both"),
+                     "--data", json.dumps(payload.get("data") or {}), "--source", source]
+              for key in ("decisions", "hypotheses", "experiments", "metrics", "signals"):
+                  ids = (payload.get("refs") or {}).get(key)
+                  if ids:
+                      cmd += [f"--{key}", ",".join(ids)]
+              if payload.get("ts"):
+                  cmd += ["--ts", payload["ts"]]
+              if tags:
+                  cmd += ["--tags", ",".join(tags)]
+          sys.exit(subprocess.run(cmd).returncode)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "brain-ingest"
+          git config user.email "brain-ingest@users.noreply.github.com"
+          git add innovation/ ops/signal-log.md data/ llms-full.txt adapters/portable-control-layer.md
+          git commit -m "ingest: ${{ github.event.action }} from repository_dispatch" || echo "nothing to commit"
+          git push

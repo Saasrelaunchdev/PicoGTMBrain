@@ -1,0 +1,9 @@
+---
+description: Pico go-to-market rules for product copy. Load for UI strings, emails, onboarding, listing copy, docs, and release notes.
+globs: ["**/*.md", "**/locales/**", "**/i18n/**", "**/*.liquid", "**/emails/**"]
+alwaysApply: false
+---
+
+The Pico go-to-market lives at `gtm-brain/` and governs every customer-facing string. Read `gtm-brain/AGENTS.md`, then `gtm-brain/rules/feature-status.md`, `gtm-brain/rules/do-not-say.md`, and `gtm-brain/rules/writing-rules.md`.
+
+A capability not SHIPPED is never written in the present tense. No number, customer, or review that is not in the brain. Stock is as of the last catalog sync. Run `python3 gtm-brain/tools/brain.py lint <file>` before proposing the change.

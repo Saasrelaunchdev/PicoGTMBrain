@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Saasrelaunchdev/PicoGTMBrain/schemas/event.schema.json",
+  "title": "Innovation accounting event",
+  "description": "One activity in the append-only log at innovation/events/YYYY-MM.jsonl. Never edited, corrected by appending an event whose refs.corrects names the original id.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "ts",
+    "type",
+    "audience",
+    "source",
+    "data"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^evt_[0-9a-f]{12}$"
+    },
+    "ts": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$"
+    },
+    "type": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)*$"
+    },
+    "audience": {
+      "type": "string",
+      "enum": [
+        "merchants",
+        "implementers",
+        "both"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Where the fact came from: a tool, a dashboard, a person, a webhook."
+    },
+    "actor": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object"
+    },
+    "refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "decisions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(D\\d{1,3}|B\\d{1,3})$"
+          }
+        },
+        "hypotheses": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^H-[MI]\\d+$"
+          }
+        },
+        "experiments": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^EXP-\\d{3}$"
+          }
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "corrects": {
+          "type": "string",
+          "pattern": "^evt_[0-9a-f]{12}$"
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    }
+  }
+}

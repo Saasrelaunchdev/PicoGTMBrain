@@ -1,0 +1,170 @@
+{
+  "$schema": "../schemas/export.schema.json",
+  "kind": "glossary",
+  "generated_from": [
+    "rules/glossary.md"
+  ],
+  "as_of": "2026-11-04",
+  "items": [
+    {
+      "section": "Names",
+      "term": "Pico",
+      "rule": "The product and brand in prose. Capital P, no \"PICO\", no \"Pico AI\" as a bare name"
+    },
+    {
+      "section": "Names",
+      "term": "PicoFinds",
+      "rule": "The company and project name. Domain: picofinds.com. Contact: us@picofinds.com"
+    },
+    {
+      "section": "Names",
+      "term": "Pico AI Shopping Assistant",
+      "rule": "The Shopify App Store listing name, in full on the listing and in App Store copy. It separates Pico from \"Piko ‑ Pickup Reminder\""
+    },
+    {
+      "section": "Names",
+      "term": "Pico Assistant",
+      "rule": "The theme app embed's name, exactly as it appears in the Shopify theme editor"
+    },
+    {
+      "section": "Names",
+      "term": "AI shopping assistant",
+      "rule": "The category. Lowercase in prose"
+    },
+    {
+      "section": "People",
+      "term": "merchant",
+      "rule": "The store that installs and pays. Not \"user\" in copy, not \"client\" unless an implementer is speaking"
+    },
+    {
+      "section": "People",
+      "term": "shopper",
+      "rule": "The person asking in the widget. Never \"customer\" when the merchant could misread it as their own buyer list"
+    },
+    {
+      "section": "People",
+      "term": "implementer",
+      "rule": "Agencies of every kind, Shopify developers, theme developers, and freelancers. \"Agency\" alone excludes freelancers"
+    },
+    {
+      "section": "People",
+      "term": "partner, lead partner",
+      "rule": "An implementer accepted into the program, and one with 5 active paying stores. Only after the partner page is live in week 6"
+    },
+    {
+      "section": "People",
+      "term": "founding cohort",
+      "rule": "The first 20 US merchant stores. Never \"beta\" or \"early access program\""
+    },
+    {
+      "section": "Product",
+      "term": "conversation",
+      "rule": "The billing unit: a chat thread with at least one AI reply. Messages from the same shopper on the same device within 24 hours count once. Fair use: 50 AI replies"
+    },
+    {
+      "section": "Product",
+      "term": "synced catalog",
+      "rule": "The source of every product card. Always \"synced\", because stock is as of the last catalog sync"
+    },
+    {
+      "section": "Product",
+      "term": "product card",
+      "rule": "Image, name, price, stock label, and a View link"
+    },
+    {
+      "section": "Product",
+      "term": "Analytics page, Overview, Catalog, Integrations, Assistant, Plan & Usage, Settings",
+      "rule": "The seven dashboard pages, capitalized as named"
+    },
+    {
+      "section": "Product",
+      "term": "discovery funnel",
+      "rule": "Request to result, click, and add to cart, with step conversion"
+    },
+    {
+      "section": "Product",
+      "term": "zero result phrases, weak click phrases",
+      "rule": "Requests to the assistant that returned no products, or products that drew few clicks"
+    },
+    {
+      "section": "Product",
+      "term": "sandbox store",
+      "rule": "The sample outdoor gear catalog on the real API. Never \"demo store\" in copy"
+    },
+    {
+      "section": "Product",
+      "term": "setup skill",
+      "rule": "The downloadable file a coding agent follows. Never \"AI installer\""
+    },
+    {
+      "section": "Product",
+      "term": "theme app embed",
+      "rule": "How Pico reaches the storefront. Never \"plugin\" or \"script injection\" for Shopify"
+    },
+    {
+      "section": "Product",
+      "term": "quota meter",
+      "rule": "The usage bar on Plan & Usage"
+    },
+    {
+      "section": "Programs and magnets",
+      "term": "Shopper Words Test",
+      "rule": "The merchant demand driver. Capitalized, never \"audit\""
+    },
+    {
+      "section": "Programs and magnets",
+      "term": "Paid Usability Session",
+      "rule": "The implementer demand driver: $150, up to 90 minutes"
+    },
+    {
+      "section": "Programs and magnets",
+      "term": "Client Store Findability Audit",
+      "rule": "The service an implementer can sell from the session's findings"
+    },
+    {
+      "section": "Programs and magnets",
+      "term": "Shopify Store Findability Scorecard, Agency AI Shopping Readiness Scorecard",
+      "rule": "The two ScoreApp lead magnets, named in full"
+    },
+    {
+      "section": "Programs and magnets",
+      "term": "open proof",
+      "rule": "A claim the reader can check now, labelled as checkable. Never presented as a customer result"
+    },
+    {
+      "section": "Programs and magnets",
+      "term": "proof log",
+      "rule": "The closed list of permissioned customer proof. Empty on 2026-11-04"
+    },
+    {
+      "section": "Programs and magnets",
+      "term": "managed share, deal registration",
+      "rule": "The 10% share on stores a partner manages but did not refer, and the 90-day claim on a client store's myshopify domain"
+    },
+    {
+      "section": "Banned near-synonyms",
+      "term": "chatbot",
+      "rule": "Pico positions against \"another AI chatbot\". Use AI shopping assistant"
+    },
+    {
+      "section": "Banned near-synonyms",
+      "term": "semantic search, AI search engine",
+      "rule": "There is no vector search. Describe the matching"
+    },
+    {
+      "section": "Banned near-synonyms",
+      "term": "live stock, real-time inventory",
+      "rule": "Stock is as of the last catalog sync"
+    },
+    {
+      "section": "Banned near-synonyms",
+      "term": "checkout in chat",
+      "rule": "Pico adds to the store's own cart. Checkout stays in the store"
+    },
+    {
+      "section": "Banned near-synonyms",
+      "term": "Pico Partner Program, certified partner",
+      "rule": "No program name before week 6, and no certification exists"
+    }
+  ]
+}

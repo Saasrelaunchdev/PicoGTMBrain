@@ -1,0 +1,120 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Pico GTM Brain, log a signal or an event",
+    "version": "1",
+    "description": "Writes to the brain through GitHub's repository_dispatch API. The ingest-event workflow validates the payload against schemas/, appends it to ops/signal-log.md or innovation/events/, refreshes the ledger, and commits. Authenticate with a fine-grained GitHub token for this one repository with Contents read and write."
+  },
+  "servers": [
+    {
+      "url": "https://api.github.com"
+    }
+  ],
+  "paths": {
+    "/repos/Saasrelaunchdev/PicoGTMBrain/dispatches": {
+      "post": {
+        "operationId": "logToBrain",
+        "summary": "Log what a person said (brain-signal) or what happened (brain-event). Never estimate a value.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "event_type",
+                  "client_payload"
+                ],
+                "properties": {
+                  "event_type": {
+                    "type": "string",
+                    "enum": [
+                      "brain-signal",
+                      "brain-event"
+                    ]
+                  },
+                  "client_payload": {
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "source"
+                    ],
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "For brain-signal, one of OBJECTION, LANGUAGE, PROOF, STATUS, COMPETITIVE, SEGMENT, CHANNEL, LOSS, RISK. For brain-event, one of activation.step, asset.shipped, case_study.permission, cohort.joined, conversation.first, decision.made, decision.reopened, experiment.closed, experiment.started, install, interview.completed, metric.observed, milestone, partner.signed, payout.made, plan.changed, review.received, session.completed, session.offered, signal.logged, uninstall."
+                      },
+                      "source": {
+                        "type": "string",
+                        "description": "Where it came from, for example founding call, App Store review, or Partner Dashboard"
+                      },
+                      "verbatim": {
+                        "type": "string",
+                        "description": "brain-signal only: the exact words, never paraphrased"
+                      },
+                      "context": {
+                        "type": "string",
+                        "description": "brain-signal only: who, where, and what was happening"
+                      },
+                      "disposition": {
+                        "type": "string",
+                        "description": "brain-signal only: NOISE (the default), WATCH (n/N), PATCH, or AMEND"
+                      },
+                      "tags": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "Tripwire tags, for example handoff-request, theme-issue, gcc-inbound, attribution-dispute"
+                      },
+                      "audience": {
+                        "type": "string",
+                        "enum": [
+                          "merchants",
+                          "implementers",
+                          "both"
+                        ],
+                        "description": "brain-event only"
+                      },
+                      "data": {
+                        "type": "object",
+                        "description": "brain-event only: the facts. A KPI value uses type metric.observed with data {metric, value, period}, for example {\"metric\": \"m.listing_to_install\", \"value\": 0.031}"
+                      },
+                      "refs": {
+                        "type": "object",
+                        "description": "brain-event only: related ids by kind, for example {\"experiments\": [\"EXP-001\"], \"decisions\": [\"D33\"]}"
+                      },
+                      "ts": {
+                        "type": "string",
+                        "description": "brain-event only: when it happened, ISO 8601 in UTC. Defaults to now"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Accepted. The workflow commits the entry a minute or two later."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "githubToken": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "githubToken": []
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Merge into ~/.codex/config.toml. Replace the path with your checkout of PicoGTMBrain.
+[mcp_servers.pico-gtm-brain]
+command = "python3"
+args = ["/ABSOLUTE/PATH/TO/PicoGTMBrain/tools/mcp_server.py"]
+
+[mcp_servers.pico-gtm-brain.env]
+PICO_BRAIN_READONLY = "0"

@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Saasrelaunchdev/PicoGTMBrain/schemas/metrics.schema.json",
+  "title": "KPI registry",
+  "type": "object",
+  "required": [
+    "version",
+    "last_reviewed",
+    "anchors",
+    "metrics"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer"
+    },
+    "last_reviewed": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "anchors": {
+      "type": "object"
+    },
+    "north_stars": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "audience",
+          "name",
+          "compute"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[mi]\\.[a-z0-9_]+$"
+          },
+          "audience": {
+            "type": "string",
+            "enum": [
+              "merchants",
+              "implementers",
+              "both"
+            ]
+          },
+          "stage": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 7
+          },
+          "name": {
+            "type": "string",
+            "minLength": 3
+          },
+          "why": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "ratio",
+              "count",
+              "minutes",
+              "usd",
+              "points"
+            ]
+          },
+          "target": {
+            "type": "number"
+          },
+          "comparator": {
+            "type": "string",
+            "enum": [
+              ">=",
+              ">",
+              "<=",
+              "<",
+              "=="
+            ]
+          },
+          "review": {
+            "type": "object"
+          },
+          "source": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string",
+            "pattern": "^D\\d{1,3}$"
+          },
+          "compute": {
+            "type": "object",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "observed",
+                  "count",
+                  "ratio",
+                  "median"
+                ]
+              },
+              "event": {
+                "type": "string"
+              },
+              "field": {
+                "type": "string"
+              },
+              "where": {
+                "type": "object"
+              },
+              "numerator": {
+                "type": "object"
+              },
+              "denominator": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "audience",
+          "name",
+          "compute"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[mi]\\.[a-z0-9_]+$"
+          },
+          "audience": {
+            "type": "string",
+            "enum": [
+              "merchants",
+              "implementers",
+              "both"
+            ]
+          },
+          "stage": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 7
+          },
+          "name": {
+            "type": "string",
+            "minLength": 3
+          },
+          "why": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "ratio",
+              "count",
+              "minutes",
+              "usd",
+              "points"
+            ]
+          },
+          "target": {
+            "type": "number"
+          },
+          "comparator": {
+            "type": "string",
+            "enum": [
+              ">=",
+              ">",
+              "<=",
+              "<",
+              "=="
+            ]
+          },
+          "review": {
+            "type": "object"
+          },
+          "source": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string",
+            "pattern": "^D\\d{1,3}$"
+          },
+          "compute": {
+            "type": "object",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "observed",
+                  "count",
+                  "ratio",
+                  "median"
+                ]
+              },
+              "event": {
+                "type": "string"
+              },
+              "field": {
+                "type": "string"
+              },
+              "where": {
+                "type": "object"
+              },
+              "numerator": {
+                "type": "object"
+              },
+              "denominator": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

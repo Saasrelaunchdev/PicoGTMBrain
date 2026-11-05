@@ -1,0 +1,9 @@
+# Generated from tools/brain.py (AIDER_READ) by `python3 tools/brain.py build`. Edit the source, never this file.
+# Aider loads these files read-only into every chat.
+read:
+  - AGENTS.md
+  - rules/glossary.md
+  - rules/feature-status.md
+  - rules/do-not-say.md
+  - rules/writing-rules.md
+  - ops/QA-checklist.md

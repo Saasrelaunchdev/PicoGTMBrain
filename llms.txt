@@ -1,0 +1,89 @@
+# Pico GTM Brain
+
+> The governed go-to-market for Pico, an AI shopping assistant for Shopify stores that answers shoppers with products from the store's own synced catalog and shows merchants what shoppers asked for. Two standalone audiences: Shopify merchants, and the implementers who set up stores. Pre-launch: no installs, reviews, or customers exist, and the customer proof log is empty. This file indexes the repository for AI agents. Start with the router, then the master context, then the rules, then task-specific references. One-file version: [llms-full.txt](llms-full.txt).
+
+## Routers (load first)
+- [CLAUDE.md](CLAUDE.md): primary router, read order and non-negotiables. Wins if routers disagree.
+- [AGENTS.md](AGENTS.md): router for Codex, Cursor, Zed, Jules, opencode, Aider, and the installed skill.
+- [GEMINI.md](GEMINI.md): router for Gemini CLI.
+
+## Source of truth
+- [Master GTM context](context/Pico_GTM_Master_Context.md): both go-to-markets distilled in 16 sections, with status notes an agent must not assume past.
+
+## Control layer (read before writing)
+- [Glossary](rules/glossary.md): canonical names and the distinctions that must never blur.
+- [Feature status](rules/feature-status.md): SHIPPED, IN BUILD, ROADMAP, OUT, by capability, with weeks.
+- [Do not say](rules/do-not-say.md): forbidden claims with safe replacements, and the scoping drills.
+- [Writing rules](rules/writing-rules.md): mechanics, tone, channel discipline, signature lines.
+- [QA checklist](ops/QA-checklist.md): the pre-ship gate.
+
+## Reference (load on demand)
+- [Positioning statements](reference/positioning.md): core claims and three statements per audience.
+- [Positioning verdicts](reference/positioning-verdict.md): the settled forks and why.
+- [Feature matrix](reference/feature-matrix.md): what leads, what is table stakes, the demand drivers.
+- [Competitive analysis, merchants](reference/competitive-analysis-merchants.md): the slate, review themes, vectors.
+- [Competitive analysis, implementers](reference/competitive-analysis-implementers.md): programs, terms, vectors.
+- [Competitor battlecards](reference/competitor-battlecards.md): strength, gap, how Pico wins, per rival.
+- [ICP and personas, merchants](reference/icp-personas-merchants.md): two levels, the committee, the founding cohort.
+- [ICP and personas, implementers](reference/icp-personas-implementers.md): two levels, the committee, the paid cohort.
+- [Value proposition, merchants](reference/value-proposition-merchants.md): promise, pillars, nine copy drills.
+- [Value proposition, implementers](reference/value-proposition-implementers.md): promise, pillars, nine copy drills.
+- [Customer journey, merchants](reference/customer-journey-merchants.md): seven stages and the activation sub-funnel.
+- [Customer journey, implementers](reference/customer-journey-implementers.md): seven stages and the paid engagement.
+- [Objection handling](reference/objection-handling.md): the honest answers, both audiences.
+- [Marketing campaigns](reference/marketing-campaigns.md): channels and the asset backlog.
+- [Channel engine, merchants](reference/app-store-engine.md): App Store, content, product-led lifecycle.
+- [Channel engine, implementers](reference/outreach-engine.md): cold email, LinkedIn, Upwork and Fiverr, platform rules.
+- [Pricing and packaging](reference/pricing-and-packaging.md): value metric, tiers, quota behavior, ROI anchors.
+- [Partner program](reference/partner-program.md): session fees, shares, tiers, payouts, attribution.
+- [Lead magnets](reference/lead-magnets.md): both ScoreApp scorecards.
+- [Market sizing](reference/market-sizing.md): frames per audience, one tracker per figure.
+- [Launch plan](reference/launch-plan.md): the calendar from 2026-11-09, build list, budget, runway gate.
+- [The GCC, for later](reference/gcc-later.md): the trigger and the one approved line.
+- [Innovation accounting](reference/innovation-accounting.md): how activity becomes knowledge.
+
+## Templates
+- [App Store listing](templates/app-store-listing.md), [landing page](templates/landing-page.md), [catalog guide and comparison page](templates/seo-article.md), [lifecycle email](templates/lifecycle-email.md), [review reply](templates/review-reply.md).
+- [Cold email](templates/cold-email.md), [LinkedIn](templates/linkedin-message.md), [Upwork and Fiverr](templates/marketplace-job-post.md).
+- [Case study](templates/case-study.md), [one-pager](templates/one-pager.md), [social post](templates/social-post.md).
+
+## Examples (match the voice)
+- [App Store listing](examples/app-store-listing.md), [first insight email](examples/first-insight-email.md), [sync failure email](examples/sync-failure-email.md), the brain's live test: merchants.
+- [Cold email](examples/cold-email-paid-session.md), [Upwork job post](examples/upwork-job-post.md), [LinkedIn founder post](examples/linkedin-founder-post.md): implementers.
+
+## Finished assets
+- [Pages](pages/README.md): shipped copy, none yet on 2026-11-04.
+
+## Operations and state
+- [Copy bank](ops/copy-bank.md): approved language, safe to reuse verbatim.
+- [Decision log](ops/decisions.md): D1 to D56 and B1, with reopen triggers.
+- [Signal log](ops/signal-log.md): raw market input and its disposition.
+- [Asset index](ops/asset-index.md): sources, live surfaces, adapters.
+- [Review cadence](ops/review-cadence.md): rituals, owners, staleness.
+- [Prompt library](prompts/common-tasks.md): filled prompts per recurring job.
+- `snapshots/`: dated captures, starting with the 2026-11-04 pre-launch baseline.
+
+## Innovation accounting layer
+- [Ledger](innovation/LEDGER.md): generated state of metrics, hypotheses, experiments, tripwires.
+- [Metrics](innovation/metrics.json), [hypotheses](innovation/hypotheses.json), [experiments](innovation/experiments.json), [tripwires](innovation/tripwires.json).
+- `innovation/events/`: the append-only event log, one JSONL file per month.
+
+## Machine interfaces
+- [CLI](tools/brain.py): context, lint, lookup, search, signal, event, observe, metrics, tripwires, ledger, snapshot, build, check, validate, audit.
+- [MCP server](tools/mcp_server.py): the brain as tools, resources, and prompts over stdio.
+- [HTTP server](tools/http_server.py): read-only REST at `/v1` and remote MCP at `/mcp`, with a bearer token for anything beyond loopback. [Dockerfile](Dockerfile) to host it.
+- [OpenAPI, read](adapters/http/openapi.json) and [OpenAPI, write through GitHub](adapters/http/github-dispatch.openapi.json): import into a custom GPT as Actions, or into n8n, Dify, or Flowise. Generated.
+- `schemas/`: JSON Schemas for events, signals, metrics, hypotheses, experiments, tripwires, exports.
+- `data/`: generated JSON exports of every ledger. Never edited by hand.
+- [Tests](tools/tests/test_brain.py): the linter, ledgers, load sets, accounting, doors, MCP, and HTTP.
+
+## Portability (doors for other tools)
+- [Adapters](adapters/README.md): one door per tool, and the five-prompt conformance check.
+- [Door source](adapters/door.md): the one pointer every tool's rule file is rendered from by `python3 tools/brain.py build`. CI fails if a rendered door drifts.
+- [Portable control layer](adapters/portable-control-layer.md): dated paste-in for chat models with no file access.
+- Rule files, rendered from the door source: [Cursor](.cursor/rules/pico-gtm-brain.mdc), [Windsurf](.windsurf/rules/pico-gtm-brain.md), [Copilot](.github/copilot-instructions.md), [Cline](.clinerules/pico-gtm-brain.md), [Roo Code](.roo/rules/pico-gtm-brain.md), [Continue](.continue/rules/pico-gtm-brain.md), [Kiro](.kiro/steering/pico-gtm-brain.md), [Amazon Q Developer](.amazonq/rules/pico-gtm-brain.md), [JetBrains Junie](.junie/guidelines.md), [JetBrains AI Assistant](.aiassistant/rules/pico-gtm-brain.md), [Trae](.trae/rules/project_rules.md), [OpenHands](.openhands/microagents/repo.md), Goose `.goosehints`, Aider `.aider.conf.yml`.
+- MCP configuration: `.mcp.json` (Claude Code), `.cursor/mcp.json`, `.vscode/mcp.json`, `.gemini/settings.json`, `adapters/claude-desktop/claude_desktop_config.json`, `adapters/codex/config.toml`.
+- Claude Code commands, the source for every other tool's commands: [write](.claude/commands/write.md), [log-signal](.claude/commands/log-signal.md), [log-event](.claude/commands/log-event.md), [weekly-review](.claude/commands/weekly-review.md), [snapshot](.claude/commands/snapshot.md), [amend](.claude/commands/amend.md), [audit](.claude/commands/audit.md).
+- The same seven commands, rendered as pico-write.md, pico-log-signal.md, pico-log-event.md, pico-weekly-review.md, pico-snapshot.md, pico-amend.md, and pico-audit.md in `.cursor/commands/`, `.windsurf/workflows/`, `.opencode/command/`, and `adapters/codex/prompts/`; as pico-write.prompt.md, pico-log-signal.prompt.md, pico-log-event.prompt.md, pico-weekly-review.prompt.md, pico-snapshot.prompt.md, pico-amend.prompt.md, and pico-audit.prompt.md in `.github/prompts/`; and as TOML in `.gemini/commands/pico/`.
+- [PR template](.github/pull_request_template.md), [brain CI](.github/workflows/brain-ci.yml), [ingest workflow](.github/workflows/ingest-event.yml).
+- Installed skills: `.claude/skills/go-to-market-brain/`, `.claude/skills/gtm-slop-filter/`.

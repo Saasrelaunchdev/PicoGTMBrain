@@ -1,0 +1,290 @@
+{
+  "$schema": "../schemas/export.schema.json",
+  "kind": "claims",
+  "generated_from": [
+    "rules/do-not-say.md"
+  ],
+  "as_of": "2026-11-04",
+  "items": [
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Increases sales.\" \"Boosts conversion.\" \"Pays for itself.\" \"Drives revenue.\" Any ROI or lift figure",
+      "say_instead": "\"See what shoppers asked for, what they clicked, and what they added to cart.\" Revenue attribution is not measured, and the dashboard says so",
+      "phrases": [
+        "Increases sales",
+        "Boosts conversion",
+        "Pays for itself",
+        "Drives revenue"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Pico never makes things up.\" \"Zero hallucinations.\" \"100% accurate.\"",
+      "say_instead": "\"Product cards show names, prices, and stock from your synced catalog.\"",
+      "phrases": [
+        "Pico never makes things up",
+        "Zero hallucinations",
+        "100% accurate"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Live stock.\" \"Real-time inventory.\" \"Checks live stock.\"",
+      "say_instead": "\"Stock as of your last catalog sync.\" Add \"updated by webhook on Shopify\" only after the inventory webhook ships",
+      "phrases": [
+        "Live stock",
+        "Real-time inventory",
+        "Checks live stock"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Only recommends what is in stock.\"",
+      "say_instead": "\"Shows stock on every card, and keeps out-of-stock items out of the cart.\"",
+      "phrases": [
+        "Only recommends what is in stock"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"AI-powered semantic search.\" \"Understands what shoppers mean.\"",
+      "say_instead": "\"An AI model reads the request, then Pico matches it to your catalog by keywords, synonyms, and price range.\"",
+      "phrases": [
+        "AI-powered semantic search",
+        "Understands what shoppers mean"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Shoppers can buy right in the chat.\" \"Checkout in chat.\"",
+      "say_instead": "\"One tap adds the product to your store's own cart.\"",
+      "phrases": [
+        "Shoppers can buy right in the chat",
+        "Checkout in chat"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Compare products side by side.\"",
+      "say_instead": "\"Pico can compare products inside its reply.\"",
+      "phrases": [
+        "Compare products side by side"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Pico remembers your shoppers.\"",
+      "say_instead": "\"The conversation survives a page reload on the same device.\"",
+      "phrases": [
+        "Pico remembers your shoppers"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Shows you what customers want that you don't sell.\"",
+      "say_instead": "\"Shows phrases shoppers asked the assistant that returned no products or few clicks, which points to gaps in the catalog or in how products are described.\"",
+      "phrases": [
+        "Shows you what customers want that you don't sell"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Sounds exactly like your brand.\"",
+      "say_instead": "\"Set personality, warmth, answer length, emoji use, clarification style, and up to 1,000 characters of tone guidelines.\"",
+      "phrases": [
+        "Sounds exactly like your brand"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Fully multilingual.\" \"Speaks every language.\"",
+      "say_instead": "\"Replies follow the shopper's language. Widget text is translated for 10 languages.\"",
+      "phrases": [
+        "Fully multilingual",
+        "Speaks every language"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Works with any store.\"",
+      "say_instead": "\"Built for Shopify.\" Shopware 6 and custom stores belong to a later go-to-market",
+      "phrases": [
+        "Works with any store"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Installs itself.\" \"No developer needed.\" \"Zero setup.\"",
+      "say_instead": "\"Install from the App Store and follow a four-step checklist. Developers can hand the setup to a coding agent with Pico's setup skill.\"",
+      "phrases": [
+        "Installs itself",
+        "No developer needed",
+        "Zero setup"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"No impact on speed.\"",
+      "say_instead": "The measured Lighthouse difference on Dawn, as published on the technical one-pager, once measured",
+      "phrases": [
+        "No impact on speed"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Free forever.\" \"Unlimited.\"",
+      "say_instead": "\"Free covers 50 conversations a month.\"",
+      "phrases": [
+        "Free forever",
+        "Unlimited"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"One plan for all your stores.\" \"Built for agencies.\"",
+      "say_instead": "\"Each plan connects one store.\"",
+      "phrases": [
+        "One plan for all your stores",
+        "Built for agencies"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "Any install, store, merchant, review, rating, or conversation count for Pico",
+      "say_instead": "Nothing. Pico is pre-launch. Use open proof from ops/copy-bank.md",
+      "phrases": []
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "Any testimonial, named merchant, logo, or case study",
+      "say_instead": "Nothing until the proof log has an entry with exact wording, source, and recorded permission",
+      "phrases": []
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Your store is losing sales.\" \"Shopify's search is broken.\"",
+      "say_instead": "\"Shoppers who can't find a product by browsing can ask for it.\"",
+      "phrases": [
+        "Your store is losing sales",
+        "Shopify's search is broken"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Smarter than Shopify search.\" Any claim that a Shopify tool lacks something",
+      "say_instead": "Do not compare. Describe what Pico does",
+      "phrases": [
+        "Smarter than Shopify search"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Cheaper than Chatty.\" \"Unlike other chatbots.\" Any named comparison",
+      "say_instead": "No comparison in copy that customers see without a sourced, dated, page-loaded finding, rechecked before each use",
+      "phrases": [
+        "Cheaper than Chatty",
+        "Unlike other chatbots"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"Pay with InstaPay.\" EGP prices in Shopify copy",
+      "say_instead": "Nothing. Shopify installs bill in USD through Shopify Billing",
+      "phrases": [
+        "Pay with InstaPay"
+      ]
+    },
+    {
+      "scope": "Hard bans",
+      "do_not_say": "\"No surprise charges. Pico pauses before it bills you more.\" before the pause ships",
+      "say_instead": "\"A quota meter shows usage on the Plan & Usage page.\" Use the pause line once the quota behavior is SHIPPED",
+      "phrases": [
+        "No surprise charges. Pico pauses before it bills you more"
+      ]
+    },
+    {
+      "scope": "Implementer bans",
+      "do_not_say": "\"Earn recurring revenue.\" \"Guaranteed leads.\" Any income or traffic number",
+      "say_instead": "\"Partners earn 25% of each referred store's subscription for 24 months.\" Merchants who ask for setup help are offered listed partners",
+      "phrases": [
+        "Earn recurring revenue",
+        "Guaranteed leads"
+      ]
+    },
+    {
+      "scope": "Implementer bans",
+      "do_not_say": "\"Join the Pico Partner Program\" before week 6. \"Certified partner.\" \"White label.\"",
+      "say_instead": "\"Paid usability sessions: we pay you $150 to install Pico on a store you work on and tell us what works and what breaks.\"",
+      "phrases": [
+        "Join the Pico Partner Program",
+        "Certified partner",
+        "White label"
+      ]
+    },
+    {
+      "scope": "Implementer bans",
+      "do_not_say": "\"We'll feature your agency in a case study.\"",
+      "say_instead": "\"With your client's written permission, we write up what changed on their store and credit your work.\"",
+      "phrases": [
+        "We'll feature your agency in a case study"
+      ]
+    },
+    {
+      "scope": "Implementer bans",
+      "do_not_say": "Any rate other than 25%, 30%, and 10% managed",
+      "say_instead": "The published terms only, quoted exactly",
+      "phrases": []
+    },
+    {
+      "scope": "Implementer bans",
+      "do_not_say": "A partner invitation, outside link, or email request inside Upwork or Fiverr",
+      "say_instead": "Nothing on the platform. Implementers find picofinds.com/partners on their own",
+      "phrases": []
+    },
+    {
+      "scope": "Claims that need scoping",
+      "do_not_say": "\"The only assistant that sticks to your catalog.\"",
+      "counter_example": "Manifest AI, Wantly, Fast Simon, and dozens of App Store listings describe catalog-only answers, and Lyro skips out-of-stock items.",
+      "say_instead": "\"Built around your synced catalog.\"",
+      "phrases": [
+        "The only assistant that sticks to your catalog"
+      ]
+    },
+    {
+      "scope": "Claims that need scoping",
+      "do_not_say": "\"Only Pico shows unanswered questions.\"",
+      "counter_example": "Shopify Search & Discovery reports search-bar terms with no results and no clicks, and Tidio lists questions Lyro could not answer.",
+      "say_instead": "insight into what shoppers asked the assistant.",
+      "phrases": [
+        "Only Pico shows unanswered questions"
+      ]
+    },
+    {
+      "scope": "Claims that need scoping",
+      "do_not_say": "\"The Arabic AI shopping assistant.\"",
+      "counter_example": "Arabic-first Shopify apps exist (Luma, shamz.ai), Salla ships Arabic AI search, Fin and Lyro answer in Arabic.",
+      "say_instead": "\"Arabic replies display right to left, with a language switcher and separate merchant copy per language.\" GCC copy only, later.",
+      "phrases": [
+        "The Arabic AI shopping assistant"
+      ]
+    },
+    {
+      "scope": "Claims that need scoping",
+      "do_not_say": "\"No vendor pays implementers before a referral.\"",
+      "counter_example": "",
+      "say_instead": "Holds for every program found on 2026-11-03, internally. In copy, describe Pico's offer, never the others'.",
+      "phrases": [
+        "No vendor pays implementers before a referral"
+      ]
+    },
+    {
+      "scope": "Claims that need scoping",
+      "do_not_say": "\"A sandbox no competitor offers.\"",
+      "counter_example": "",
+      "say_instead": "Holds for the slates checked on 2026-11-03. Internal only, and recheck before any use.",
+      "phrases": [
+        "A sandbox no competitor offers"
+      ]
+    }
+  ]
+}

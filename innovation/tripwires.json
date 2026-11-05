@@ -1,0 +1,26 @@
+{
+  "$schema": "../schemas/tripwires.schema.json",
+  "version": 1,
+  "last_reviewed": "2026-11-04",
+  "tripwires": [
+    {"id": "TW-D11", "decision": "D11", "name": "Open the GCC", "when": {"all": [{"signals": {"tag": "gcc-inbound", "window_days": 90}, "op": ">=", "value": 5}, {"metric": "m.founding_stores", "op": ">=", "value": 20}]}, "action": "Size the GCC from the UAE first and review messaging channels (D14)."},
+    {"id": "TW-D12", "decision": "D12", "name": "Reopen human handoff", "when": {"any": [{"signals": {"tag": "handoff-request", "window_days": 120}, "op": ">=", "value": 5}, {"events": {"type": "uninstall", "where": {"reason": "handoff"}, "window_days": 30}, "op": ">=", "value": 2}]}, "action": "Reopen C5 scope with the founder and engineer."},
+    {"id": "TW-D13", "decision": "D13", "name": "Reopen order and policy answers", "when": {"any": [{"signals": {"tag": "order-answers-request", "window_days": 120}, "op": ">=", "value": 5}, {"events": {"type": "uninstall", "where": {"reason": "order-answers"}, "window_days": 30}, "op": ">=", "value": 2}]}, "action": "Reopen C6 scope. Positioning against support agents may need rewording."},
+    {"id": "TW-D16", "decision": "D16", "name": "Theme rendering issue", "when": {"signals": {"tag": "theme-issue", "window_days": 60}, "op": ">=", "value": 2}, "action": "Fix the widget and list the theme on the technical one-pager."},
+    {"id": "TW-D18", "decision": "D18", "name": "Speed budget exceeded", "when": {"metric": "m.lighthouse_delta", "op": ">", "value": 10}, "action": "Fix the widget before launch. Never publish a 'no impact' line."},
+    {"id": "TW-D24", "decision": "D24", "name": "Conversation definition confusion", "when": {"signals": {"tag": "conversation-definition", "window_days": 30}, "op": ">=", "value": 3}, "action": "Rewrite the definition on the plan page and listing."},
+    {"id": "TW-D25", "decision": "D25", "name": "Pauses drive uninstalls", "when": {"metric": "m.pause_uninstall_share", "op": ">", "value": 0.20}, "action": "Revisit the quota behavior. Never add overage without a decision entry."},
+    {"id": "TW-D26", "decision": "D26", "name": "Yearly plans not chosen", "when": {"metric": "m.yearly_share", "op": "<", "value": 0.10}, "action": "Review the yearly offer at month 6."},
+    {"id": "TW-D27", "decision": "D27", "name": "Custom plan demand", "when": {"signals": {"tag": "custom-plan-request", "window_days": 180}, "op": ">=", "value": 3}, "action": "Publish a tier above Scale."},
+    {"id": "TW-D28", "decision": "D28", "name": "Model cost over the ceiling", "when": {"metric": "m.model_cost_per_conversation", "op": ">", "value": 0.02}, "action": "Change the model or prompt before any price changes."},
+    {"id": "TW-D30", "decision": "D30", "name": "Founding cohort full early", "when": {"metric": "m.founding_stores", "op": ">=", "value": 20}, "action": "If before day 60, open a second cohort of 20."},
+    {"id": "TW-D33", "decision": "D33", "name": "Too few Upwork applicants", "when": {"metric": "i.upwork_applicants_per_post", "op": "<", "value": 10}, "action": "Raise the session fee to $200."},
+    {"id": "TW-D34", "decision": "D34", "name": "Interviews declined", "when": {"metric": "i.interview_acceptance", "op": "<", "value": 0.5}, "action": "Rethink the interview incentive or format."},
+    {"id": "TW-D35", "decision": "D35", "name": "Partner share review", "when": {"metric": "i.partner_referred_share", "op": ">", "value": 0.25}, "action": "Review the 25% and 30% shares against margin."},
+    {"id": "TW-D38", "decision": "D38", "name": "Attribution disputes", "when": {"signals": {"tag": "attribution-dispute", "window_days": 90}, "op": ">=", "value": 2}, "action": "Tighten deal registration."},
+    {"id": "TW-D39", "decision": "D39", "name": "Routed requests at scale", "when": {"metric": "i.routed_requests_per_month", "op": ">=", "value": 50}, "action": "Add matching by speciality."},
+    {"id": "TW-D23", "decision": "D23", "name": "Build the agency workspace", "when": {"metric": "i.partners_with_3_stores", "op": ">=", "value": 10}, "action": "Start the multi-store workspace (C3)."},
+    {"id": "TW-D42", "decision": "D42", "name": "Listing underconverts", "when": {"metric": "m.listing_to_install", "op": "<", "value": 0.02}, "action": "Rework the listing: screenshots first, then copy."},
+    {"id": "TW-D46", "decision": "D46", "name": "Feedback calls skipped", "when": {"metric": "m.call_attendance", "op": "<", "value": 0.5}, "action": "Change the call format or cadence."}
+  ]
+}
